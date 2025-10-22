@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creative Technologist · UX Designer — Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ----------------------------------
+       ABOUT SECTION PHOTO STYLING (STATIC)
+    ---------------------------------- */
+    .about-photo {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .about-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(255,139,209,0.18), rgba(165,139,255,0.15)),
+        url('media/victoria.jpg') center/cover no-repeat;
+      filter: contrast(1.05) saturate(1.08);
+      border-radius: inherit;
+      opacity: 0.9;
+      transition: opacity 0.4s ease;
+    }
+
+    .about-photo:hover::after {
+      opacity: 1;
+    }
+
+    .about-photo::before {
+      content: "";
+      position: absolute;
+      inset: -10%;
+      background: radial-gradient(
+        circle at 50% 80%,
+        rgba(255,139,209,.25),
+        rgba(165,139,255,.15),
+        transparent 70%
+      );
+      filter: blur(60px);
+      z-index: -1;
+      opacity: 0.8;
+      animation: glowPulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowPulse {
+      from { opacity: 0.6; }
+      to   { opacity: 0.9; }
+    }
+
+    /* --- Unlock Gallery Section --- */
+    #unlock-gallery {
+      padding: 160px 0;
+      position: relative;
+    }
+
+    .unlock-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .unlock-text {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .unlock-text .eyebrow {
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .unlock-canvas canvas {
+      width: 100%;
+      max-width: 960px;
+      height: 360px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+    }
+
+    .unlock-text .subcopy {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: clamp(16px, 1.2vw, 18px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="bg-orbs" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav">
+      <div class="logo">CT · <span>UX</span></div>
+      <div>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#works">Works</a>
+        <a href="#contact" class="btn-ghost">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="container hero">
+      <div>
+        <p class="eyebrow">Creative Technologist & UX Designer</p>
+<h1 class="headline name-intro" data-kinetic>
+  VICTORIA GODINHO
+</h1>
+
+        <p class="subcopy">
+          I craft interactive experiences that blend editorial clarity with expressive motion —
+          from animated interfaces and parallax narratives to AI-assisted design tools.
+          Smooth transitions, kinetic type, and a living gradient set the tone.
+        </p>
+        <div class="cta-row">
+          <a href="#works" class="btn">See Selected Work</a>
+          <a href="#about" class="btn alt">About Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container split">
+      <div class="about-photo parallax" data-depth="0.12">
+        <span class="orb o1"></span>
+        <span class="orb o2"></span>
+      </div>
+
+      <div class="about-copy">
+        <h2 data-scrub>Designer + Developer with a lens on systems and sensation.</h2>
+        <p data-scrub>
+Hi, my name is Victoria Godinho, and I’m pursuing a degree in Design and Technology at Parsons School of Design in New York City. My work lives at the intersection of UX design, storytelling, and creative coding.
+
+I design and develop websites, apps, and interactive experiences that are both intuitive and visually engaging. With a background in art and illustration, I bring a strong visual sensibility into my projects, combining creative expression with technical execution. I enjoy working with Figma, Adobe Creative Suite, and Unity, as well as coding in JavaScript, HTML, and CSS.
+        </p>
+        <p data-scrub>
+Having lived in three different countries, I’ve learned to see the world through multiple perspectives. This experience shapes how I approach design and technology as ways to connect cultures, tell stories, and build bridges between people.
+        </p>
+        <div class="cta-row">
+          <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+<section id="works">
+  <div class="container">
+    <h2 class="headline works-title" data-kinetic>MY WORKS</h2>
+    </p>
+
+    <div class="spacer-lg"></div>
+
+    <div class="grid">
+      <a href="works/glowflow.html" class="card-link">
+        <article class="card">
+          <div class="shine"></div>
+          <img src="media/glowflow-thumbnail.jpg" alt="GlowFlow Project Thumbnail">
+          <div class="meta">
+            <span class="tag">UX • Web design</span>
+            <span class="title">GlowFlow</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="works/rube.html" class="card-link">
+        <article class="card">
+          <div class="shine"></div>
+          <img src="media/rube.png" alt="Rube Project Thumbnail">
+          <div class="meta">
+            <span class="tag">Installation • Motion</span>
+            <span class="title">Rube Goldberg Machine</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="works/instagram.html" class="card-link">
+        <article class="card">
+          <div class="shine"></div>
+          <img src="media/ads-thumbnail.jpg" alt="Instagram Project Thumbnail">
+          <div class="meta">
+            <span class="tag">Brand • Motion</span>
+            <span class="title">Instagram</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="works/beautyblog.html" class="card-link">
+        <article class="card">
+          <div class="shine"></div>
+          <img src="media/beauty.png" alt="Beauty Blog Project Thumbnail">
+          <div class="meta">
+            <span class="tag">UX • Editorial</span>
+            <span class="title">Beauty Blog</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="works/night.html" class="card-link">
+        <article class="card">
+          <div class="shine"></div>
+          <img src="media/night.png" alt="Night Project Thumbnail">
+          <div class="meta">
+            <span class="tag">Immersive</span>
+            <span class="title">The Night We Watched</span>
+          </div>
+        </article>
+      </a>
+
+      <a href="works/journey.html" class="card-link">
+        <article class="card">
+          <div class="shine"></div>
+          <img src="media/p5-thumbnail.jpg" alt="Journey Project Thumbnail">
+          <div class="meta">
+            <span class="tag">Game • Web</span>
+            <span class="title">Journey</span>
+          </div>
+        </article>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- UNLOCK GALLERY -->
+  <section id="unlock-gallery">
+    <div class="container unlock-wrap">
+      <div class="unlock-text">
+        <p class="eyebrow">A Little Secret</p>
+        <h2 class="headline" style="font-size: clamp(28px,5vw,56px);" data-kinetic>
+          Move to Reveal.
+        </h2>
+        <p class="subcopy">
+            Keep moving your cursor while holding down the mouse to unlock a secret gallery of my illustrations.
+        </p>
+      </div>
+
+      <div class="unlock-canvas">
+        <canvas id="trail" width="960" height="360"></canvas>
+      </div>
+    </div>
+  </section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact-wrap">
+    <div class="contact-content">
+      <p class="eyebrow">Let’s build something thoughtful</p>
+      <h2 class="headline" style="font-size: clamp(28px,5vw,56px);" data-kinetic>Say hello.</h2>
+      <p class="subcopy">
+        Available for internships, collaborations, and freelance.
+        I respond quickly and can share deeper case studies or prototypes upon request.
+      </p>
+
+      <div class="contact-card">
+        <div class="icon-row">
+          <a class="ico" href="mailto:youremail@example.com" title="Email">✉️</a>
+          <a class="ico" href="#" title="LinkedIn">in</a>
+          <a class="ico" href="#" title="GitHub">gh</a>
+          <a class="ico" href="#" title="Behance">Be</a>
+        </div>
+
+<form
+  action="https://formspree.io/f/xeorbllj"
+  method="POST"
+  class="contact-form"
+>
+  <input class="field" type="text" name="name" placeholder="Your name" required>
+  <input class="field" type="email" name="email" placeholder="Your email" required>
+  <textarea class="field" name="message" rows="5" placeholder="Message"></textarea>
+  <button class="btn send" type="submit">Send Message</button>
+</form>
+
+      </div>
+    </div>
+
+    <!-- Giant Waving Emoji -->
+    <div class="contact-emoji" aria-hidden="true">👋</div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Creative Technologist · UX Designer: Built with HTML, CSS and JS.
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

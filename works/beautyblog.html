@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beauty Blog — Editorial UX Design</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* --- Compact Project Intro --- */
+    .project-intro {
+      max-width: 920px;
+      margin: 100px auto 36px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .project-intro h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .project-intro p {
+      color: var(--muted);
+      font-size: clamp(16px, 1.2vw, 18px);
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 22px;
+    }
+
+    /* Live button */
+    .btn-live {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      background: linear-gradient(90deg,#ff8bd1,#a58bff);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .3px;
+      transition: transform .25s var(--ease-std), box-shadow .25s var(--ease-std);
+      box-shadow: 0 12px 30px rgba(165,139,255,.18);
+    }
+    .btn-live:hover { transform: translateY(-2px); box-shadow: 0 18px 44px rgba(165,139,255,.24); }
+
+    /* Video */
+    .video-frame {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 50px;
+      width: 100%;
+    }
+    .video-frame video {
+      width: 100%;
+      max-width: 920px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      background: rgba(255,255,255,.04);
+      transition: transform .4s var(--ease-std), box-shadow .4s var(--ease-std);
+    }
+    .video-frame video:hover { transform: scale(1.015); box-shadow: 0 30px 80px rgba(165,139,255,.15); }
+
+    /* Text Sections */
+    .content-section {
+      max-width: 850px;
+      margin: 48px auto 12px;
+      padding: 0 24px;
+    }
+    .content-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.4vw, 32px);
+      margin-top: 36px;
+      margin-bottom: 10px;
+    }
+    .content-section p { color: var(--muted); font-size: 18px; line-height: 1.7; }
+
+    /* Smooth reveal gallery (same pattern as early GlowFlow) */
+    .gallery-section {
+      width: 100%;
+      overflow: hidden;
+      padding: 22px 0 80px;
+    }
+    .gallery-block {
+      position: relative;
+      width: 100%;
+      margin: 0 auto 42px;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .gallery-block img, 
+    .gallery-block video {
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s var(--ease-std), transform 1s var(--ease-std);
+    }
+    .gallery-block.visible img,
+    .gallery-block.visible video { opacity: 1; transform: translateY(0); }
+
+    .caption {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16.5px;
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1s var(--ease-std) .15s, transform 1s var(--ease-std) .15s;
+    }
+    .gallery-block.visible .caption { opacity: 1; transform: translateY(0); }
+
+    .back-row { text-align: center; margin: 80px 0 90px; }
+  </style>
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="bg-orbs" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav">
+      <div class="logo">CT · <span>UX</span></div>
+      <div>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#works" class="active">Works</a>
+        <a href="../index.html#contact" class="btn-ghost">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Project Intro -->
+  <section class="project-intro">
+    <h1 class="headline" data-kinetic>Beauty Blog</h1>
+    <p>
+      A minimal editorial-style platform that merges UX and beauty storytelling.
+      Designed with emphasis on clarity, rhythm, and sensory calm — a modern digital magazine.
+    </p>
+
+    <!-- Live Project Button -->
+    <a href="https://your-beautyblog-link.com" target="_blank" rel="noopener noreferrer" class="btn-live">View Live Project</a>
+
+    <div class="video-frame">
+      <video controls playsinline muted loop poster="https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1200&auto=format&fit=crop">
+        <source src="../media/beautyblog-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <p class="subcopy" style="text-align:center; margin-top: 8px;">
+      A short walkthrough of the Beauty Blog layout, smooth scroll, and interactive transitions.
+    </p>
+  </section>
+
+  <!-- Description / Concept / Process -->
+  <div class="content-section">
+    <h2>Description</h2>
+    <p>
+      <strong>Beauty Blog</strong> is a responsive web project that combines editorial aesthetics with modern UX.
+      It focuses on clean navigation, typographic hierarchy, and immersive imagery to create an atmosphere
+      that feels personal yet professional — like a digital magazine for skincare and self-expression.
+    </p>
+
+    <h2>Concept</h2>
+    <p>
+      The concept bridges visual design and content strategy. Beauty Blog reimagines how beauty content can live online:
+      not as product advertising but as reflective, story-driven experiences. Posts flow through gently timed scroll
+      animations and subtle tonal shifts.
+    </p>
+
+    <h2>Design Process</h2>
+    <p>
+      The design uses a neutral palette — ivory tones with soft blush accents — for elegance and warmth.
+      Typography follows an editorial rhythm: bold geometric headings paired with clean sans body text.
+      The layout adapts across devices via a flexible grid, ensuring accessibility without sacrificing refinement.
+    </p>
+  </div>
+
+  <!-- Smooth Reveal Gallery (GlowFlow-style) -->
+  <section class="gallery-section">
+    <div class="gallery-block">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" alt="Article layout and typography">
+      <p class="caption">Article template with generous whitespace and editorial type rhythm.</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop" alt="Category grid and imagery">
+      <p class="caption">Category grid uses soft image cards, subtle hover states, and motion curves.</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="https://images.unsplash.com/photo-1527502669403-5672f72c6ef3?q=80&w=1600&auto=format&fit=crop" alt="Long-form post with imagery">
+      <p class="caption">Long-form beauty story blending product, portrait, and texture photography.</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop" alt="Mobile responsive layout">
+      <p class="caption">Mobile layout preserves rhythm and spacing with responsive type scales.</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1600&auto=format&fit=crop" alt="Newsletter sign-up interaction">
+      <p class="caption">Newsletter sign-up panel with soft glow and accessible focus states.</p>
+    </div>
+  </section>
+
+  <!-- Back Button -->
+  <div class="back-row">
+    <a href="../index.html#works" class="btn">← Back to Works</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Creative Technologist · UX Designer — Built with semantic HTML, CSS variables, and vanilla JS motion.
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    /* Reveal-on-scroll for gallery blocks (same behavior as earlier GlowFlow) */
+    const blocks = document.querySelectorAll('.gallery-block');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    blocks.forEach(b => obs.observe(b));
+  </script>
+</body>
+</html>
