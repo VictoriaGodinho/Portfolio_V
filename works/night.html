@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Night We Watched — Projection & Sound Installation</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* --- Compact Project Layout (same as GlowFlow) --- */
+    .project-intro {
+      max-width: 920px;
+      margin: 100px auto 40px;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .project-intro h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .project-intro p {
+      color: var(--muted);
+      font-size: clamp(16px, 1.2vw, 18px);
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 24px;
+    }
+
+    .btn-live:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(165, 139, 255, 0.25);
+      border-radius:25px
+    }
+
+    /* Video Section */
+    .video-frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto 60px;
+      width: 100%;
+      gap: 60px;
+    }
+
+    .video-box {
+      max-width: 920px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .video-box h3 {
+      font-size: 1.3em;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    .video-box video {
+      width: 100%;
+      max-width: 920px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 0.4s var(--ease-std), box-shadow 0.4s var(--ease-std);
+      border-radius: 16px;
+    }
+
+    .video-box video:hover {
+      transform: scale(1.015);
+      box-shadow: 0 30px 80px rgba(165, 139, 255, 0.15);
+    }
+
+    /* Content Sections */
+    .content-section {
+      max-width: 850px;
+      margin: 60px auto 20px;
+      padding: 0 24px;
+    }
+
+    .content-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.4vw, 32px);
+      margin-top: 48px;
+      margin-bottom: 10px;
+    }
+
+    .content-section p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* Smooth Reveal Gallery */
+    .gallery-section {
+      width: 100%;
+      overflow: hidden;
+      padding: 22px 0 80px;
+    }
+
+    .gallery-block {
+      position: relative;
+      width: 100%;
+      margin: 0 auto 42px;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .gallery-block img {
+      width: 100%;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s var(--ease-std), transform 1s var(--ease-std);
+    }
+
+    .gallery-block.visible img {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .caption {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16.5px;
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1s var(--ease-std) .15s, transform 1s var(--ease-std) .15s;
+    }
+
+    .gallery-block.visible .caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-row {
+      text-align: center;
+      margin: 80px 0 90px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background layers -->
+  <div class="bg-orbs" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav">
+      <div class="logo">CT · <span>UX</span></div>
+      <div>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#works" class="active">Works</a>
+        <a href="../index.html#contact" class="btn-ghost">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Title + Videos -->
+  <section class="project-intro">
+    <h1 class="headline" data-kinetic>The Night We Watched</h1>
+    <p>
+      A projection and sound installation showing a nighttime cityscape through glowing apartment windows.
+      Each window reveals quiet moments of daily life, reflecting the unseen stories that connect us all.
+    </p>
+
+    <div class="video-frame">
+      <div class="video-box">
+        <h3>Final Projection</h3>
+        <video controls playsinline muted loop poster="../media/the-night-final-thumb.jpg">
+          <source src="../media/Finallabandstudio.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-box">
+        <h3>Immersive Experience</h3>
+        <video controls playsinline muted loop poster="../media/the-night-immersive-thumb.jpg">
+          <source src="../media/IMG_9201.MOV" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <p class="subcopy" style="text-align:center; margin-top: 12px;">
+      Documentation of both the final projection and immersive room experience.
+    </p>
+  </section>
+
+  <!-- Description -->
+  <div class="content-section">
+    <h2>Description</h2>
+    <p>
+      <strong>The Night We Watched</strong> is a projection and sound installation that captures the quiet pulse of the city at night. 
+      Through illuminated windows and layered soundscapes, it reveals fleeting glimpses of human life, turning private spaces into a collective dream.
+    </p>
+
+    <h2>Concept</h2>
+    <p>
+      Inspired by the rhythm of city nights, this work explores how isolation and connection coexist in urban living.
+      Each window represents a fragment of life—a story happening in parallel to countless others. 
+      The installation invites viewers to slow down and imagine what emotions and routines unfold behind the light.
+    </p>
+
+    <h2>Design Process</h2>
+    <p>
+      I divided the creation into two main stages: capturing footage of apartment windows and designing the projected layout. 
+      I composited the scenes using <strong>After Effects</strong> for layered animations and used <strong>Premiere Pro</strong> to sync ambient soundscapes and jazz-inspired tones.
+      The sound design blends city ambience, TV static, laughter, and subtle reverb to create a cinematic nighttime texture.
+    </p>
+
+    <h2>Reflection</h2>
+    <p>
+      This project taught me how storytelling can exist through stillness and rhythm rather than dialogue. 
+      By merging projection, sound, and architecture, I learned to build an environment that feels alive and empathetic.
+      It reminded me that even in a city of millions, moments of solitude can connect us in unexpected ways.
+    </p>
+  </div>
+
+  <!-- Smooth Reveal Gallery -->
+  <section class="gallery-section">
+    <div class="gallery-block">
+      <img src="../media/night.png" alt="Progress Screenshot">
+      <p class="caption">Work-in-progress: assembling layered window compositions and ambient lighting tests.</p>
+    </div>
+  </section>
+
+  <!-- Back Button -->
+  <div class="back-row">
+    <a href="../index.html#works" class="btn">← Back to Works</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Creative Technologist · UX Designer: Projection & Sound Design for immersive storytelling.
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    /* Reveal-on-scroll animation for gallery blocks */
+    const blocks = document.querySelectorAll('.gallery-block');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    blocks.forEach(b => obs.observe(b));
+  </script>
+</body>
+</html>
