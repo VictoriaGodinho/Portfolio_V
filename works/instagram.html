@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Hidden Cost of Engagement — Instagram Ads Project</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* --- Compact Project Layout (same as GlowFlow) --- */
+    .project-intro {
+      max-width: 920px;
+      margin: 100px auto 40px;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .project-intro h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .project-intro p {
+      color: var(--muted);
+      font-size: clamp(16px, 1.2vw, 18px);
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 24px;
+    }
+
+    /* Live Project Button */
+    .btn-live {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 12px 28px;
+      background: linear-gradient(90deg,#ff8bd1,#a58bff);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 12px 30px rgba(165, 139, 255, 0.18);
+      border-radius: 25px;
+    }
+
+    .btn-live:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(165, 139, 255, 0.25);
+      border-radius:25px
+    }
+
+    /* Video Section */
+    .video-frame {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 60px;
+      width: 100%;
+    }
+
+    .video-frame video {
+      width: 100%;
+      max-width: 920px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 0.4s var(--ease-std), box-shadow 0.4s var(--ease-std);
+      border-radius: 16px;
+    }
+
+    .video-frame video:hover {
+      transform: scale(1.015);
+      box-shadow: 0 30px 80px rgba(165, 139, 255, 0.15);
+    }
+
+    /* Content Sections */
+    .content-section {
+      max-width: 850px;
+      margin: 60px auto 20px;
+      padding: 0 24px;
+    }
+
+    .content-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.4vw, 32px);
+      margin-top: 48px;
+      margin-bottom: 10px;
+    }
+
+    .content-section p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* Smooth Reveal Gallery */
+    .gallery-section {
+      width: 100%;
+      overflow: hidden;
+      padding: 22px 0 80px;
+    }
+
+    .gallery-block {
+      position: relative;
+      width: 100%;
+      margin: 0 auto 42px;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .gallery-block img {
+      width: 100%;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s var(--ease-std), transform 1s var(--ease-std);
+    }
+
+    .gallery-block.visible img {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .caption {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16.5px;
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1s var(--ease-std) .15s, transform 1s var(--ease-std) .15s;
+    }
+
+    .gallery-block.visible .caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-row {
+      text-align: center;
+      margin: 80px 0 90px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background layers -->
+  <div class="bg-orbs" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav">
+      <div class="logo">CT · <span>UX</span></div>
+      <div>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#works" class="active">Works</a>
+        <a href="../index.html#contact" class="btn-ghost">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Title + Video -->
+  <section class="project-intro">
+    <h1 class="headline" data-kinetic>The Hidden Cost of Engagement</h1>
+    <p>
+      An interactive web experience that exposes the hidden economy behind user interactions with Instagram ads
+      where every pause, scroll, and click quietly becomes a transaction of value.
+    </p>
+
+    <!-- Live Project Button -->
+    <a href="https://victoriagodinho.github.io/SelfPortrait/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live Project</a>
+
+    <div class="video-frame">
+      <video controls playsinline muted loop poster="../media/ads-thumb.jpg">
+        <source src="../media/ads.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <p class="subcopy" style="text-align:center; margin-top: 12px;">
+      A simulation showing how user attention translates into advertising value.
+    </p>
+  </section>
+
+  <!-- Description -->
+  <div class="content-section">
+    <h2>Description</h2>
+    <p>
+      <strong>The Hidden Cost of Engagement</strong> explores how social media platforms transform attention into profit. 
+      The experience mimics how even the smallest digital gestures—hovering, pausing, or clicking—can generate measurable economic impact.
+      By visualizing this invisible flow of money, the project invites users to question how their everyday online behaviors are monetized.
+    </p>
+
+    <h2>Concept</h2>
+    <p>
+      Using ad data extracted from my own Instagram activity, I recreated the experience of scrolling through ads that track and value each micro-interaction.
+      The project simulates how viewing an ad adds $0.50 to a virtual counter, while clicking it contributes $3.00.
+      These amounts are symbolic, designed to make visible the hidden infrastructures of engagement that drive the attention economy.
+    </p>
+
+    <h2>Design Process</h2>
+    <p>
+      The interface was developed using <strong>HTML, CSS, and JavaScript</strong>, with responsive design and animated receipts representing financial transactions.
+      I experimented with <strong>scroll-based triggers</strong> to simulate real-time tracking and user feedback loops.
+      The aesthetic borrows from Instagram’s minimalist UI but shifts its tone into a critical commentary on digital consumerism.
+    </p>
+
+    <h2>Reflection</h2>
+    <p>
+      This project reminded me that design is not neutral—interfaces shape behavior and value systems.
+      By turning the invisible data exchange into a visual, interactive metaphor, I wanted to bridge awareness and playfulness.
+      It was a reminder that every tap, swipe, or pause online participates in a vast network of value creation.
+    </p>
+  </div>
+
+  <!-- Smooth Reveal Gallery -->
+  <section class="gallery-section">
+    <div class="gallery-block">
+      <img src="../media/ads.png" alt="Ad Overload Interface">
+      <p class="caption">Landing page overloaded with personalized Instagram ads.</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/printing.png" alt="Loading Screen">
+      <p class="caption">Transition screen using printer animation to mimic data processing.</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/receipt.png" alt="Receipt Screen">
+      <p class="caption">Scrolling receipt showing the cumulative cost of ad engagement.</p>
+    </div>
+  </section>
+
+  <!-- Back Button -->
+  <div class="back-row">
+    <a href="../index.html#works" class="btn">← Back to Works</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Creative Technologist · UX Designer: Exploring attention, value, and interface ethics.
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    /* Reveal-on-scroll animation for gallery blocks */
+    const blocks = document.querySelectorAll('.gallery-block');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    blocks.forEach(b => obs.observe(b));
+  </script>
+</body>
+</html>
