@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rube Goldberg Machine — Interactive Dream Worlds</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    /* --- Compact Project Layout (same as GlowFlow) --- */
+    .project-intro {
+      max-width: 920px;
+      margin: 100px auto 40px;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .project-intro h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .project-intro p {
+      color: var(--muted);
+      font-size: clamp(16px, 1.2vw, 18px);
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 24px;
+    }
+
+    /* Live Project Button */
+    .btn-live {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 12px 28px;
+      background: linear-gradient(90deg,#ff8bd1,#a58bff);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 12px 30px rgba(165, 139, 255, 0.18);
+      border-radius: 25px;
+    }
+
+    .btn-live:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(165, 139, 255, 0.25);
+      border-radius:25px
+    }
+
+    /* Video Section */
+    .video-frame {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 60px;
+      width: 100%;
+    }
+
+    .video-frame video {
+      width: 100%;
+      max-width: 920px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 0.4s var(--ease-std), box-shadow 0.4s var(--ease-std);
+      border-radius: 16px;
+    }
+
+    .video-frame video:hover {
+      transform: scale(1.015);
+      box-shadow: 0 30px 80px rgba(165, 139, 255, 0.15);
+    }
+
+    /* Content Sections */
+    .content-section {
+      max-width: 850px;
+      margin: 60px auto 20px;
+      padding: 0 24px;
+    }
+
+    .content-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.4vw, 32px);
+      margin-top: 48px;
+      margin-bottom: 10px;
+    }
+
+    .content-section p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* Smooth Reveal Gallery */
+    .gallery-section {
+      width: 100%;
+      overflow: hidden;
+      padding: 22px 0 80px;
+    }
+
+    .gallery-block {
+      position: relative;
+      width: 100%;
+      margin: 0 auto 42px;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .gallery-block img {
+      width: 100%;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s var(--ease-std), transform 1s var(--ease-std);
+    }
+
+    .gallery-block.visible img {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .caption {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16.5px;
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1s var(--ease-std) .15s, transform 1s var(--ease-std) .15s;
+    }
+
+    .gallery-block.visible .caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-row {
+      text-align: center;
+      margin: 80px 0 90px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background layers -->
+  <div class="bg-orbs" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav">
+      <div class="logo">CT · <span>UX</span></div>
+      <div>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#works" class="active">Works</a>
+        <a href="../index.html#contact" class="btn-ghost">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Title + Video -->
+  <section class="project-intro">
+    <h1 class="headline" data-kinetic>Rube Goldberg Machine</h1>
+    <p>
+      A Rube Goldberg machine inspired by a childhood dream, where a marble travels through four distinct fantasy worlds: each reflecting a different season, color palette, and mood.
+    </p>
+
+  
+    <div class="video-frame">
+      <video controls playsinline muted loop poster="../media/rube-thumb.jpg">
+        <source src="../media/rube-goldberg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <p class="subcopy" style="text-align:center; margin-top: 12px;">
+      A walkthrough of the Rube Goldberg interactive worlds and seasonal transitions.
+    </p>
+  </section>
+
+  <!-- Description -->
+  <div class="content-section">
+    <h2>Description</h2>
+    <p>
+      <strong>Rube Goldberg Machine</strong> is a 3D animated interactive project created using Unity software, where a marble travels through four dreamlike worlds, each representing a different season. 
+      The work merges storytelling, physics, and motion design to visualize how small actions can create playful, chain-reaction narratives.
+    </p>
+
+    <h2>Concept</h2>
+    <p>
+      This project was inspired by a childhood dream where each room transformed into a new environment. I reimagined that concept by creating four interconnected worlds:
+      <strong>Candyland (Spring)</strong>, <strong>Fall World</strong>, <strong>Summer World</strong>, and <strong>Winter World</strong>.
+      Each stage reflects a different mood and uses color, sound, and rhythm to guide the viewer through a continuous flow of motion.
+    </p>
+
+    <h2>Design Process</h2>
+    <p>
+      I first white-boxed the environment to test the mechanics, then refined each world’s lighting and textures to reflect its emotional tone.
+      Pastel pinks for Candyland evoke childhood nostalgia, orange hues for Fall feel warm and cinematic, bright blues for Summer create energy, and icy whites for Winter feel serene and reflective.
+    </p>
+
+    <h2>Reflection</h2>
+    <p>
+      This project originally started as a story about my daily commute, but after losing my progress twice, I decided to reinvent it.
+      That setback ended up being a creative turning point, because it pushed me toward a more imaginative and personal direction.  
+      I learned to embrace accidents, reframe frustration as inspiration, and build worlds that reflect emotion through motion.
+    </p>
+  </div>
+
+  <!-- Smooth Reveal Gallery -->
+  <section class="gallery-section">
+    <div class="gallery-block">
+      <img src="../media/progress1.png" alt="Initial Sketch">
+      <p class="caption">Whiteboxing — Early Stage</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/progress2.png" alt="Color Experiments">
+      <p class="caption">Color Experiments</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/progress4.png" alt="Final Scene Layout">
+      <p class="caption">Final Scene Layout</p>
+    </div>
+  </section>
+
+  <!-- Back Button -->
+  <div class="back-row">
+    <a href="../index.html#works" class="btn">← Back to Works</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Creative Technologist · UX Designer: Interactive storytelling through animation and motion design.
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    /* Reveal-on-scroll animation for gallery blocks */
+    const blocks = document.querySelectorAll('.gallery-block');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    blocks.forEach(b => obs.observe(b));
+  </script>
+</body>
+</html>
