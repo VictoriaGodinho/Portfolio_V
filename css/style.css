@@ -212,7 +212,7 @@ section {
   overflow: hidden;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
-  z-index: 0
+  z-index: 0;
 }
 
 .about-photo::after {
@@ -249,7 +249,9 @@ section {
   font-size: clamp(16px, 1.2vw, 18px);
 }
 
-/* WORKS GRID */
+/* ----------------------------------
+   WORKS GRID
+---------------------------------- */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -267,13 +269,36 @@ section {
   transform: translateZ(0);
 }
 
+/* ✨ Soft dark overlay for harmony + readability */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 11, 16, 0.75),
+    rgba(165, 139, 255, 0.12)
+  );
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Lighten overlay slightly on hover */
+.card:hover::after {
+  opacity: 0.65;
+}
+
 .card img {
   width: 100%;
   height: 260px;
   object-fit: cover;
   display: block;
-  filter: saturate(105%);
+  border-radius: inherit;
   transition: transform .7s var(--ease-std), opacity .4s;
+  position: relative;
+  z-index: 0;
 }
 
 .card:hover img {
@@ -281,6 +306,7 @@ section {
   opacity: .9;
 }
 
+/* Text above overlay, white for contrast */
 .card .meta {
   position: absolute;
   inset: auto 14px 14px 14px;
@@ -288,31 +314,46 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .tag {
   font-size: 12px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, .06);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
-.title { font-weight: 700; font-size: 14px; }
+.title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
 
 .shine {
   position: absolute;
   inset: 0;
-  background: radial-gradient(400px 200px at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.08), transparent 55%);
+  border-radius: inherit;
+  background: radial-gradient(
+    400px 200px at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.08),
+    transparent 55%
+  );
   mix-blend-mode: screen;
   z-index: 1;
   transition: opacity .2s;
   opacity: 0;
+  pointer-events: none;
 }
 
 .card:hover .shine { opacity: 1; }
 
-/* CONTACT */
+/* ----------------------------------
+   CONTACT
+---------------------------------- */
 .contact-wrap {
   display: grid;
   gap: 18px;
@@ -394,7 +435,7 @@ section {
   filter: drop-shadow(0 0 20px rgba(255, 139, 209, 0.4));
   transform-origin: 70% 70%;
   user-select: none;
-  margin-top: 160px
+  margin-top: 160px;
 }
 
 @keyframes wave {
@@ -417,8 +458,9 @@ section {
   }
 }
 
-
-/* FOOTER */
+/* ----------------------------------
+   FOOTER
+---------------------------------- */
 footer {
   border-top: 1px solid var(--line);
   padding: 26px 20px;
@@ -426,7 +468,9 @@ footer {
   text-align: center;
 }
 
-/* RESPONSIVE */
+/* ----------------------------------
+   RESPONSIVE
+---------------------------------- */
 @media (max-width: 980px) {
   .split { grid-template-columns: 1fr; }
   .grid { grid-template-columns: 1fr 1fr; }
@@ -438,6 +482,9 @@ footer {
   .headline { font-size: clamp(36px, 11vw, 96px); }
 }
 
+/* ----------------------------------
+   UNLOCK MESSAGE
+---------------------------------- */
 .unlock-msg {
   position: fixed;
   bottom: 40px;
@@ -454,29 +501,36 @@ footer {
   text-align: center;
   box-shadow: 0 0 20px rgba(255,139,209,0.5);
 }
+
 .unlock-msg.show {
   opacity: 1;
   transform: translateY(0);
 }
+
 .unlock-msg a {
   color: #ff8bd1;
   text-decoration: none;
   font-weight: 600;
 }
+
 .unlock-msg a:hover {
   text-decoration: underline;
 }
 
-/* Extra spacing between About and Works */
+/* ----------------------------------
+   EXTRA SPACING BETWEEN SECTIONS
+---------------------------------- */
 #about {
-  padding-bottom: 180px; /* adds more breathing room at the bottom */
+  padding-bottom: 180px;
 }
 
 #works {
-  padding-top: 120px; /* keeps it consistent with your other sections */
+  padding-top: 120px;
 }
 
-/* --- Intro Name Animation --- */
+/* ----------------------------------
+   INTRO NAME ANIMATION
+---------------------------------- */
 .name-intro {
   opacity: 0;
   transform: translateY(40px);
@@ -500,3 +554,10 @@ footer {
     letter-spacing: 0;
   }
 }
+
+.card-link {
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
