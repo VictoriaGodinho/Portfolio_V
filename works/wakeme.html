@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beauty Blog — Editorial UX Design</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* --- Compact Project Intro --- */
+    .project-intro {
+      max-width: 920px;
+      margin: 100px auto 36px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .project-intro h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .project-intro p {
+      color: var(--muted);
+      font-size: clamp(16px, 1.2vw, 18px);
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto 22px;
+    }
+
+
+    /* Video */
+    .video-frame {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 50px;
+      width: 100%;
+    }
+    .video-frame video {
+      width: 100%;
+      max-width: 920px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      background: rgba(255,255,255,.04);
+      transition: transform .4s var(--ease-std), box-shadow .4s var(--ease-std);
+    }
+    .video-frame video:hover { transform: scale(1.015); box-shadow: 0 30px 80px rgba(165,139,255,.15); }
+
+    /* Text Sections */
+    .content-section {
+      max-width: 850px;
+      margin: 48px auto 12px;
+      padding: 0 24px;
+    }
+    .content-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.4vw, 32px);
+      margin-top: 36px;
+      margin-bottom: 10px;
+    }
+    .content-section p { color: var(--muted); font-size: 18px; line-height: 1.7; }
+
+    /* Smooth reveal gallery (same pattern as early GlowFlow) */
+    .gallery-section {
+      width: 100%;
+      overflow: hidden;
+      padding: 22px 0 80px;
+    }
+    .gallery-block {
+      position: relative;
+      width: 100%;
+      margin: 0 auto 42px;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .gallery-block img, 
+    .gallery-block video {
+      width: 100%;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s var(--ease-std), transform 1s var(--ease-std);
+    }
+    .gallery-block.visible img,
+    .gallery-block.visible video { opacity: 1; transform: translateY(0); }
+
+    .caption {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16.5px;
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1s var(--ease-std) .15s, transform 1s var(--ease-std) .15s;
+    }
+    .gallery-block.visible .caption { opacity: 1; transform: translateY(0); }
+
+    .back-row { text-align: center; margin: 80px 0 90px; }
+  </style>
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="bg-orbs" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav">
+      <div class="logo">CT · <span>UX</span></div>
+      <div>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#works" class="active">Works</a>
+        <a href="../index.html#contact" class="btn-ghost">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Project Intro -->
+  <section class="project-intro">
+    <h1 class="headline" data-kinetic>Wake me</h1>
+    <p>
+      Wake Me is a psychological narrative game built collaboratively in Unity that transforms cleaning mechanics into a metaphor for guilt, burnout, and loss of control. The player explores fragmented domestic spaces inside the mind of a character who has fallen into a coma after a household accident. As the player cleans, the environment slowly becomes unstable, turning ordinary tasks into emotionally uncomfortable interactions. The goal of the game is not only to clean the environment, but to gradually unfold the story and understand what happened to the character exploring different spaces and observing details.
+    </p>
+
+    <div class="video-frame">
+      <video controls playsinline muted loop poster="../media/wakemecover.png">
+                <source src="../media/Wakeme.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+  </section>
+
+  <!-- Description / Concept / Process -->
+  <div class="content-section">
+    <h2>Concept</h2>
+    <p>
+      The project began with a simple question:
+</strong>What happens when a task normally associated with control and order becomes impossible to complete?</strong>
+I explored how familiar maintenance behaviors could be recontextualized to create discomfort, tension, and emotional instability instead of satisfaction. Rather than reinforcing progress through traditional gameplay rewards, the system gradually disrupts the player’s sense of control using repetition, sound, pacing, and environmental resistance.
+
+    <h2>My Role</h2>
+    <p>
+I led narrative development, environmental storytelling direction, 2D visual assets, audio direction, and the design of the game’s introductory experience.
+I also collaborated closely with other environment artists, programmers, animators, and technical artists to help align the tone of the game across mechanics, visuals, and sound.
+    </p>
+
+    <h2>Reflection</h2>
+    <p>
+      Wake Me deepened my understanding of how interaction systems themselves can communicate emotion without relying heavily on explicit narrative exposition. The project deepened my interest in storytelling, environmental narrative, and designing experiences that use interaction to shape emotional perception.
+    </p>
+  </div>
+
+  <!-- Smooth Reveal Gallery (GlowFlow-style) -->
+  <section class="gallery-section">
+    <div class="gallery-block">
+      <img src="../media/WakeMe1.png" alt="home">
+      <p class="caption">Scene 1</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/WakeMe2.png" alt="Contact">
+      <p class="caption">Scene 1</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/WakeMe3.png" alt="Contact">
+      <p class="caption">Scene 2</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/WakeMe4.png" alt="Contact">
+      <p class="caption">Scene 3</p>
+    </div>
+
+      <div class="gallery-block">
+      <img src="../media/WakeMe5.png" alt="Contact">
+      <p class="caption">Scene 4</p>
+    </div>
+
+          <div class="gallery-block">
+      <img src="../media/WakeMe6.png" alt="Contact">
+      <p class="caption">Scene 4</p>
+    </div>
+
+          <div class="gallery-block">
+      <img src="../media/WakeMe7.png" alt="Contact">
+      <p class="caption">Scene 4</p>
+
+               <div class="gallery-block">
+      <img src="../media/WakeMe8.png" alt="Contact">
+      <p class="caption">Scene 5</p>
+
+               <div class="gallery-block">
+      <img src="../media/WakeMe9.png" alt="Contact">
+      <p class="caption">Scene 6</p>
+    </div>
+  </section>
+
+  <!-- Back Button -->
+  <div class="back-row">
+    <a href="../index.html#works" class="btn">← Back to Works</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Creative Technologist · UX Designer: Built with semantic HTML, CSS variables, and vanilla JS motion.
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    /* Reveal-on-scroll for gallery blocks (same behavior as earlier GlowFlow) */
+    const blocks = document.querySelectorAll('.gallery-block');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    blocks.forEach(b => obs.observe(b));
+  </script>
+</body>
+</html>
