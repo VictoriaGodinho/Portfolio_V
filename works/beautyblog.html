@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Beauty Blog — Editorial UX Design</title>
   <link rel="stylesheet" href="../css/style.css">
+
   <style>
     /* --- Compact Project Intro --- */
     .project-intro {
@@ -13,12 +14,14 @@
       text-align: center;
       padding: 0 20px;
     }
+
     .project-intro h1 {
       font-size: clamp(42px, 6vw, 72px);
       font-weight: 800;
       line-height: 1.1;
       margin-bottom: 12px;
     }
+
     .project-intro p {
       color: var(--muted);
       font-size: clamp(16px, 1.2vw, 18px);
@@ -41,7 +44,11 @@
       transition: transform .25s var(--ease-std), box-shadow .25s var(--ease-std);
       box-shadow: 0 12px 30px rgba(165,139,255,.18);
     }
-    .btn-live:hover { transform: translateY(-2px); box-shadow: 0 18px 44px rgba(165,139,255,.24); }
+
+    .btn-live:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(165,139,255,.24);
+    }
 
     /* Video */
     .video-frame {
@@ -51,6 +58,7 @@
       margin: 0 auto 50px;
       width: 100%;
     }
+
     .video-frame video {
       width: 100%;
       max-width: 920px;
@@ -60,7 +68,11 @@
       background: rgba(255,255,255,.04);
       transition: transform .4s var(--ease-std), box-shadow .4s var(--ease-std);
     }
-    .video-frame video:hover { transform: scale(1.015); box-shadow: 0 30px 80px rgba(165,139,255,.15); }
+
+    .video-frame video:hover {
+      transform: scale(1.015);
+      box-shadow: 0 30px 80px rgba(165,139,255,.15);
+    }
 
     /* Text Sections */
     .content-section {
@@ -68,20 +80,72 @@
       margin: 48px auto 12px;
       padding: 0 24px;
     }
+
     .content-section h2 {
       font-family: var(--font-display);
       font-size: clamp(24px, 2.4vw, 32px);
       margin-top: 36px;
       margin-bottom: 10px;
     }
-    .content-section p { color: var(--muted); font-size: 18px; line-height: 1.7; }
 
-    /* Smooth reveal gallery (same pattern as early GlowFlow) */
+    .content-section p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* Wireframe Section */
+    .wireframe-section {
+      max-width: 900px;
+      margin: 34px auto 72px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wireframe-section img {
+      width: 78%;
+      max-width: 720px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s var(--ease-std), transform 1s var(--ease-std);
+    }
+
+    .wireframe-section.visible img {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .wireframe-caption {
+      max-width: 720px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity 1s var(--ease-std) .15s,
+        transform 1s var(--ease-std) .15s;
+    }
+
+    .wireframe-section.visible .wireframe-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Final Gallery */
     .gallery-section {
       width: 100%;
       overflow: hidden;
       padding: 22px 0 80px;
     }
+
     .gallery-block {
       position: relative;
       width: 100%;
@@ -92,7 +156,8 @@
       align-items: center;
       padding: 0 20px;
     }
-    .gallery-block img, 
+
+    .gallery-block img,
     .gallery-block video {
       width: 100%;
       border: 1px solid var(--line);
@@ -101,8 +166,12 @@
       transform: translateY(40px);
       transition: opacity 1s var(--ease-std), transform 1s var(--ease-std);
     }
+
     .gallery-block.visible img,
-    .gallery-block.visible video { opacity: 1; transform: translateY(0); }
+    .gallery-block.visible video {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .caption {
       max-width: 720px;
@@ -113,14 +182,31 @@
       line-height: 1.6;
       opacity: 0;
       transform: translateY(16px);
-      transition: opacity 1s var(--ease-std) .15s, transform 1s var(--ease-std) .15s;
+      transition:
+        opacity 1s var(--ease-std) .15s,
+        transform 1s var(--ease-std) .15s;
     }
-    .gallery-block.visible .caption { opacity: 1; transform: translateY(0); }
 
-    .back-row { text-align: center; margin: 80px 0 90px; }
+    .gallery-block.visible .caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-row {
+      text-align: center;
+      margin: 80px 0 90px;
+    }
+
+    @media (max-width: 700px) {
+      .wireframe-section img {
+        width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <!-- Background layers -->
   <div class="bg-orbs" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -140,77 +226,174 @@
 
   <!-- Project Intro -->
   <section class="project-intro">
+
     <h1 class="headline" data-kinetic>Beauty Blog</h1>
+
     <p>
       A responsive editorial platform exploring how digital beauty content can feel immersive, readable, and engaging.
       Designed to balance editorial aesthetics with navigational clarity and long-form reading comfort.
     </p>
 
     <!-- Live Project Button -->
-    <a href="https://victoriagodinho.github.io/BeautyBlog/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live Project</a>
+    <a
+      href="https://victoriagodinho.github.io/BeautyBlog/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-live">
+      View Live Project
+    </a>
 
     <div class="video-frame">
       <video controls playsinline muted loop poster="../media/beauty.png">
-                <source src="../media/beautyblog-demo.mp4" type="video/mp4">
+        <source src="../media/beautyblog-demo.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
+
     <p class="subcopy" style="text-align:center; margin-top: 8px;">
       A short walkthrough of the Beauty Blog layout, smooth scroll, and interactive transitions.
     </p>
+
   </section>
 
-  <!-- Description / Concept / Process -->
+
+  <!-- DESCRIPTION -->
   <div class="content-section">
+
     <h2>Description</h2>
+
     <p>
       <strong>Beauty Blog</strong> is a responsive editorial web experience focused on readability, visual pacing, and immersive content consumption.
-      It focuses on clean navigation, typographic hierarchy, and immersive imagery to create an atmosphere
-      that feels personal yet professional, like a digital magazine for skincare and self-expression.
+      It uses clear navigation, typographic hierarchy, and image-led content to create an experience that feels personal yet polished, similar to a digital beauty magazine.
     </p>
 
+
+    <!-- CONCEPT -->
     <h2>Concept</h2>
+
     <p>
-      The concept bridges visual design and content strategy. Beauty Blog reimagines how beauty content can live online:
-      not as product advertising but as reflective, story-driven experiences. Interaction pacing and scroll behavior were intentionally softened to encourage slower and more reflective content engagement.
+      The project explores how beauty content can move beyond product-focused presentation and become a more reflective, editorial experience. I wanted the site to feel visually refined while still being easy to scan, navigate, and read across different screen sizes.
     </p>
 
-    <h2>Design Process</h2>
     <p>
-      I used a restrained neutral palette and soft contrast system to reduce interface noise and reinforce a calm reading experience.
-      Typography follows an editorial rhythm: bold geometric headings paired with clean sans body text.
-      The layout adapts across devices via a flexible grid, ensuring accessibility without sacrificing refinement.
+      The interaction pacing, spacing, and content structure were designed to support slower browsing and encourage users to engage with the content rather than move quickly through dense information.
     </p>
+
+
+    <!-- WIREFRAME INTRO -->
+    <h2>Low-Fidelity Wireframes</h2>
+
+    <p>
+      I created low-fidelity wireframes to define the structure of the experience before focusing on visual styling. The sketches helped me establish information hierarchy, navigation patterns, content grouping, and the relationship between the home and contact pages.
+    </p>
+
+    <p>
+      This stage also helped me think through how the layout could translate into a flexible responsive system while keeping the content easy to scan and visually balanced.
+    </p>
+
   </div>
 
-  <!-- Smooth Reveal Gallery (GlowFlow-style) -->
+
+  <!-- WIREFRAME IMAGE -->
+  <section class="wireframe-section">
+
+    <img
+      src="../media/BeautyBlogWireframes.jpg"
+      alt="Low-fidelity wireframes for the Beauty Blog website"
+    >
+
+    <p class="wireframe-caption">
+       Mapping page hierarchy, navigation, content cards, and responsive layout decisions before moving into visual design.
+    </p>
+
+  </section>
+
+
+  <!-- DESIGN PROCESS -->
+  <div class="content-section">
+
+    <h2>Design Process</h2>
+
+    <p>
+      After establishing the page structure, I translated the wireframes into a responsive layout using a flexible grid system. I refined spacing, content proportions, and card sizing to maintain a clear hierarchy across different screen sizes.
+    </p>
+
+    <p>
+      Typography and visual styling were then layered onto this structure. Serif headlines create an editorial tone, while clean supporting text improves readability. Soft contrast, neutral tones, and generous whitespace help reduce visual noise and keep attention on the content.
+    </p>
+
+    <p>
+      The final system balances visual identity with function: imagery provides personality, typography establishes hierarchy, and the responsive layout keeps the experience consistent across devices.
+    </p>
+
+
+    <!-- REFLECTION -->
+    <h2>Reflection</h2>
+
+    <p>
+      This project strengthened my understanding of how much of a polished interface depends on decisions made before visual styling begins. Starting with hierarchy and layout gave the final typography, imagery, and spacing a clearer structure to work within.
+    </p>
+
+    <p>
+      It also helped me think more intentionally about responsive design as part of the experience rather than as a final technical adjustment. If I continued developing the project, I would test the mobile reading experience more extensively and explore how users move between editorial categories and longer-form content.
+    </p>
+
+  </div>
+
+
+  <!-- FINAL DESIGN -->
+  <div class="content-section">
+
+    <h2>Final Design</h2>
+
+    <p>
+      The final interface translates the early hierarchy and layout decisions into a polished editorial system focused on readability, visual consistency, and responsive behavior.
+    </p>
+
+  </div>
+
+
+  <!-- FINAL GALLERY -->
   <section class="gallery-section">
+
     <div class="gallery-block">
-      <img src="../media/homepage.png" alt="home">
-      <p class="caption">Home Page</p>
+      <img src="../media/homepage.png" alt="Beauty Blog home page">
+      <p class="caption">
+        Home Page — Editorial card layout and visual content hierarchy.
+      </p>
     </div>
 
     <div class="gallery-block">
-      <img src="../media/contact.png" alt="Contact">
-      <p class="caption">Contact Page</p>
+      <img src="../media/contact.png" alt="Beauty Blog contact page">
+      <p class="caption">
+        Contact Page — Maintaining the same typography, spacing, and visual system across secondary pages.
+      </p>
     </div>
 
   </section>
+
 
   <!-- Back Button -->
   <div class="back-row">
-    <a href="../index.html#works" class="btn">← Back to Works</a>
+    <a href="../index.html#works" class="btn">
+      ← Back to Works
+    </a>
   </div>
+
 
   <!-- Footer -->
   <footer>
     © <span id="year"></span> Creative Technologist · UX Designer: Built with semantic HTML, CSS variables, and vanilla JS motion.
   </footer>
 
+
   <script src="../js/script.js"></script>
+
   <script>
-    /* Reveal-on-scroll for gallery blocks (same behavior as earlier GlowFlow) */
-    const blocks = document.querySelectorAll('.gallery-block');
+    const revealItems = document.querySelectorAll(
+      '.gallery-block, .wireframe-section'
+    );
+
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -219,9 +402,10 @@
         }
       });
     }, { threshold: 0.3 });
-    blocks.forEach(b => obs.observe(b));
+
+    revealItems.forEach(item => obs.observe(item));
   </script>
+
 </body>
 </html>
-
 
