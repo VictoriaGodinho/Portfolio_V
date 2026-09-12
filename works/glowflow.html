@@ -48,7 +48,7 @@
     .btn-live:hover {
       transform: translateY(-2px);
       box-shadow: 0 18px 44px rgba(165, 139, 255, 0.25);
-      border-radius:25px
+      border-radius: 25px;
     }
 
     /* Video Section */
@@ -67,7 +67,7 @@
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       background: rgba(255, 255, 255, 0.04);
       transition: transform 0.4s var(--ease-std), box-shadow 0.4s var(--ease-std);
-          border-radius: 16px;
+      border-radius: 16px;
     }
 
     .video-frame video:hover {
@@ -95,7 +95,51 @@
       line-height: 1.7;
     }
 
-    /* Smooth Reveal Gallery (GlowFlow-style) */
+    /* Wireframe Section */
+    .wireframe-section {
+      max-width: 1100px;
+      margin: 42px auto 80px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wireframe-section img {
+      width: 55%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s var(--ease-std), transform 1s var(--ease-std);
+    }
+
+    .wireframe-section.visible img {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .wireframe-caption {
+      max-width: 760px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity 1s var(--ease-std) .15s,
+        transform 1s var(--ease-std) .15s;
+    }
+
+    .wireframe-section.visible .wireframe-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth Reveal Gallery */
     .gallery-section {
       width: 100%;
       overflow: hidden;
@@ -113,7 +157,7 @@
       padding: 0 20px;
     }
 
-    .gallery-block img, 
+    .gallery-block img,
     .gallery-block video {
       width: 100%;
       border: 1px solid var(--line);
@@ -138,7 +182,9 @@
       line-height: 1.6;
       opacity: 0;
       transform: translateY(16px);
-      transition: opacity 1s var(--ease-std) .15s, transform 1s var(--ease-std) .15s;
+      transition:
+        opacity 1s var(--ease-std) .15s,
+        transform 1s var(--ease-std) .15s;
     }
 
     .gallery-block.visible .caption {
@@ -152,7 +198,9 @@
     }
   </style>
 </head>
+
 <body>
+
   <!-- Background layers -->
   <div class="bg-orbs" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -172,14 +220,22 @@
 
   <!-- Title + Video -->
   <section class="project-intro">
+
     <h1 class="headline" data-kinetic>GlowFlow</h1>
+
     <p>
       An AI-assisted creative workflow experience exploring how designers collaborate with generative systems during visual ideation.
       GlowFlow investigates how AI can support creative decision-making without replacing human intuition or authorship.
     </p>
 
     <!-- Live Project Button -->
-    <a href="https://victoriagodinho.github.io/GlowFlow/" target="_blank" rel="noopener noreferrer" class="btn-live">View Live Project</a>
+    <a
+      href="https://victoriagodinho.github.io/GlowFlow/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-live">
+      View Live Project
+    </a>
 
     <div class="video-frame">
       <video controls playsinline muted loop poster="../media/glowflow-home.jpg">
@@ -187,106 +243,198 @@
         Your browser does not support the video tag.
       </video>
     </div>
+
     <p class="subcopy" style="text-align:center; margin-top: 12px;">
       A walkthrough of the GlowFlow interface and interactive process.
     </p>
+
   </section>
 
-  <!-- Description -->
+
+  <!-- THE PROBLEM -->
   <div class="content-section">
-    <h2>Description</h2>
+
+    <h2>The Problem</h2>
+
     <p>
-      <strong>GlowFlow</strong> GlowFlow is an interactive workflow experience that examines how AI tools can integrate into early-stage creative ideation while preserving human creative direction. 
-      The project explores the tension between automation, authorship, and creative control inside AI-assisted workflows. It investigates how generative systems can accelerate ideation while still requiring human judgment, curation, and emotional direction.
+      AI tools can accelerate visual exploration, but they can also make it difficult for designers to understand where their own creative decisions end and automated suggestions begin. Rather than asking how AI could generate a finished moodboard, I focused on a different question:
+      <strong>how might AI support early-stage visual exploration while keeping the designer in control of the final direction?</strong>
     </p>
 
-    <h2>Concept</h2>
     <p>
-     GlowFlow was developed as part of my <em>Designing with AI</em> course at Parsons, where I explored how AI could support a familiar part of my UX/UI design process: moodboarding. I created an AI-assisted workflow that breaks moodboard creation into a series of steps, identifying where AI tools can expand creative exploration and where human judgment remains essential. Using a fictional skincare brand as a case study, I experimented with tools such as Leonardo AI for visual inspiration and Khroma AI for color exploration, while keeping curation, composition, and final aesthetic decisions human-led. The final website documents this process step by step, positioning AI not as a replacement for designers, but as a collaborator that can support inspiration, experimentation, and refinement while preserving human intuition and creative direction.
-
+      GlowFlow explores this tension by treating AI as a tool for divergence and discovery, while reserving curation, composition, and final aesthetic decisions for the designer.
     </p>
+
+
+    <!-- RESEARCH -->
+    <h2>Research & Insight</h2>
+
+    <p>
+      I began by examining my existing moodboarding process and identifying the moments where I typically search, compare, curate, and refine visual references. I then experimented with generative tools including Leonardo AI and Khroma AI to understand where automation could genuinely support that workflow.
+    </p>
+
+    <p>
+      Through this exploration, I noticed that AI was most useful when generating possibilities rather than making final design decisions. It could quickly introduce unexpected imagery, colors, and visual associations, but the strongest results still depended on human judgment to determine what felt relevant, cohesive, and appropriate for the project.
+    </p>
+
+    <p>
+      This insight became the core principle of GlowFlow:
+      <strong>AI for divergence, human judgment for convergence.</strong>
+    </p>
+
+
+    <!-- WIREFRAMES TITLE -->
+    <h2>Early Wireframes</h2>
+
+    <p>
+Before developing the visual interface, I created low-fidelity wireframes to explore the structure and layout of the experience. I focused on how users would progress from the introduction, through the AI tools and exploration stages, to the final moodboard. This helped establish the page hierarchy, content placement, and overall flow before moving into visual design.    </p>
+
+  </div>
+
+
+  <!-- WIREFRAME IMAGE -->
+  <section class="wireframe-section">
+
+    <img
+      src="../media/GlowFlowWireframes.jpg"
+      alt="Early GlowFlow wireframes showing the AI-assisted design workflow"
+    >
+
+    <p class="wireframe-caption">
+Low-fidelity sketches used to define page structure, content hierarchy, and the progression from introduction to the final moodboard.    </p>
+
+  </section>
+
+
+  <!-- DESIGN PROCESS -->
+  <div class="content-section">
 
     <h2>Design Process</h2>
+
     <p>
-      As I began exploring AI within my design practice, I wanted to apply it to a process I was already familiar with rather than use it simply for the sake of incorporating new technology. With my growing interest in UX/UI design, I found myself thinking about moodboarding, one of the early stages I often use to translate an idea into a visual direction. I was curious about how AI could fit naturally into that process: not by generating a finished design, but by helping me explore possibilities more quickly and discover visual directions I might not have considered on my own. This became the foundation for GlowFlow and shaped my decision to separate the workflow into AI-assisted and human-led stages.
-    <p>
-    <p>
-      When designing the GlowFlow website itself, I wanted the interface to visually reinforce this idea of exploration and creative flow. The visual system is minimalist but dynamic, using soft gradients, translucent panels, and interactive elements to create a sense of movement throughout the experience. Smooth transitions, consistent typography, and subtle glowing highlights create a meditative rhythm that connects back to the name “GlowFlow,” while muted lilacs and pinks, inspired by light diffusion, establish a cohesive visual identity.
+      Based on the research, I structured GlowFlow as a step-by-step workflow that alternates between AI-assisted exploration and human-led decision-making. Each stage has a clear purpose, helping the user understand not only which tool to use, but why it is useful at that point in the creative process.
     </p>
+
+    <p>
+      Using a fictional skincare brand as a case study, I experimented with Leonardo AI for visual inspiration and Khroma AI for color exploration while keeping curation, composition, and final aesthetic decisions human-led.
+    </p>
+
+    <p>
+      When designing the GlowFlow website itself, I wanted the visual language to reinforce the feeling of exploration and creative flow. Soft gradients, translucent panels, subtle glowing elements, and smooth transitions create continuity between each stage while keeping the interface focused and easy to navigate.
+    </p>
+
+
+    <!-- REFLECTION -->
+    <h2>Reflection</h2>
+
+    <p>
+      GlowFlow shifted my perspective from asking what AI can generate to thinking more carefully about where AI actually belongs within a design process. The project showed me that the value of an AI-assisted workflow is not simply speed, but the ability to expand exploration while preserving intentional human decision-making.
+    </p>
+
+    <p>
+      If I continued developing the project, I would conduct usability testing with other designers to evaluate whether the distinction between AI-assisted and human-led stages is clear, whether the sequence feels natural, and which parts of the workflow are genuinely useful outside of my own creative process. This would allow GlowFlow to evolve from a workflow based primarily on my own design practice into a system informed by a broader range of designer behaviors.
+    </p>
+
   </div>
 
-  <!-- Smooth Reveal Gallery -->
 
+  <!-- FINAL EXPERIENCE -->
+  <div class="content-section">
+
+    <h2>Final Experience</h2>
+
+    <p>
+      The final experience guides the designer through a sequence of AI-assisted and human-led tasks, making the division between exploration, evaluation, and final creative decision-making visible throughout the workflow.
+    </p>
+
+  </div>
+
+
+  <!-- FINAL GALLERY -->
   <section class="gallery-section">
-  <div class="gallery-block">
-    <img src="../media/glowflow-home.jpg" alt="GlowFlow Home Interface">
-    <p class="caption">Introduction - Landing Page</p>
-  </div>
-
-<section class="gallery-section">
-  <div class="gallery-block">
-    <img src="../media/task1.png" alt="GlowFlow Home Interface">
-    <p class="caption">Task 1</p>
-  </div>
-
-  <div class="gallery-block">
-    <img src="../media/task2.png" alt="Tasking Guide Steps">
-    <p class="caption">Task 2</p>
-  </div>
-
-  <div class="gallery-block">
-    <img src="../media/task3.png" alt="AI Collaboration Interface">
-    <p class="caption">Task 3</p>
-  </div>
-</section>
-
 
     <div class="gallery-block">
-      <img src="../media/task4.png" alt="Color Palette and Gradient System">
+      <img src="../media/glowflow-home.jpg" alt="GlowFlow Home Interface">
+      <p class="caption">Introduction — Landing Page</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/task1.png" alt="GlowFlow Task 1">
+      <p class="caption">Task 1</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/task2.png" alt="GlowFlow Task 2">
+      <p class="caption">Task 2</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/task3.png" alt="GlowFlow Task 3">
+      <p class="caption">Task 3</p>
+    </div>
+
+    <div class="gallery-block">
+      <img src="../media/task4.png" alt="GlowFlow Task 4">
       <p class="caption">Task 4</p>
     </div>
 
     <div class="gallery-block">
-      <img src="../media/task5.png" alt="Moodboard Assembly UI">
+      <img src="../media/task5.png" alt="GlowFlow Task 5">
       <p class="caption">Task 5</p>
     </div>
-  </section>
 
     <div class="gallery-block">
-      <img src="../media/task6.png" alt="Moodboard Assembly UI">
+      <img src="../media/task6.png" alt="GlowFlow Task 6">
       <p class="caption">Task 6</p>
     </div>
-  </section>
 
     <div class="gallery-block">
-      <img src="../media/task7.png" alt="Moodboard Assembly UI">
+      <img src="../media/task7.png" alt="GlowFlow Task 7">
       <p class="caption">Task 7</p>
     </div>
+
   </section>
+
 
   <!-- Back Button -->
   <div class="back-row">
     <a href="../index.html#works" class="btn">← Back to Works</a>
   </div>
 
+
   <!-- Footer -->
   <footer>
     © <span id="year"></span> Creative Technologist · UX Designer: Built with semantic HTML, CSS variables, and vanilla JS motion.
   </footer>
 
+
   <script src="../js/script.js"></script>
+
   <script>
-    /* Reveal-on-scroll animation for gallery blocks */
-    const blocks = document.querySelectorAll('.gallery-block');
+    /* Reveal-on-scroll animation */
+
+    const revealItems = document.querySelectorAll(
+      '.gallery-block, .wireframe-section'
+    );
+
     const obs = new IntersectionObserver((entries) => {
+
       entries.forEach(entry => {
+
         if (entry.isIntersecting) {
+
           entry.target.classList.add('visible');
+
           obs.unobserve(entry.target);
+
         }
+
       });
+
     }, { threshold: 0.3 });
-    blocks.forEach(b => obs.observe(b));
+
+    revealItems.forEach(item => obs.observe(item));
   </script>
+
 </body>
 </html>
