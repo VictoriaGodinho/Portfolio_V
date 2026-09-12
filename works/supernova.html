@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Supernova — Web Design & Development</title>
+
+  <!-- MAIN PORTFOLIO CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+
+    /* =========================================================
+       SUPERNOVA PROJECT PAGE
+       Uses the global variables from style.css
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    /* =========================================================
+       IMPORTANT:
+       Override global section styling from main portfolio
+    ========================================================= */
+
+    .project-page section {
+      min-height: unset;
+      display: block;
+      place-items: unset;
+      padding: 0;
+    }
+
+    /* =========================================================
+       GENERAL CONTAINER
+    ========================================================= */
+
+    .project-container {
+      width: min(calc(100% - 48px), var(--maxw));
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .project-hero {
+      padding: 170px 0 100px !important;
+    }
+
+    .project-eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 13px;
+      font-weight: 600;
+      margin: 0 0 24px;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 8vw, 108px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      color: var(--ink);
+      margin: 0;
+      max-width: 1100px;
+    }
+
+    .project-intro {
+      display: grid;
+      grid-template-columns: 1.45fr 0.55fr;
+      gap: clamp(40px, 7vw, 100px);
+
+      margin-top: 64px;
+      padding-top: 34px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .project-intro-copy {
+      font-size: clamp(20px, 2vw, 27px);
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0;
+      max-width: 800px;
+    }
+
+    .project-meta {
+      display: grid;
+      gap: 25px;
+      align-content: start;
+    }
+
+    .meta-item {
+      display: grid;
+      gap: 5px;
+    }
+
+    .meta-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .meta-value {
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       HERO IMAGE
+    ========================================================= */
+
+    .hero-image-wrapper {
+      margin-top: 70px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: auto;
+    }
+
+
+    /* =========================================================
+       PROJECT SECTIONS
+    ========================================================= */
+
+    .project-section {
+      padding: 120px 0 !important;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.3fr 1.7fr;
+      gap: 50px;
+      align-items: start;
+      margin-bottom: 55px;
+    }
+
+    .section-number {
+      color: var(--accent-2);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .section-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      margin: 0 0 22px;
+      max-width: 850px;
+    }
+
+    .section-content p {
+      color: var(--muted);
+      font-size: clamp(16px, 1.3vw, 18px);
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       TWO-COLUMN IMAGE GRID
+    ========================================================= */
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .media-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .media-frame {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      aspect-ratio: 16 / 10;
+    }
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .media-frame.contain img {
+      object-fit: contain;
+      background: var(--card);
+    }
+    .media-label {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .media-caption {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* =========================================================
+       BEFORE / AFTER
+    ========================================================= */
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .comparison-item {
+      position: relative;
+    }
+
+    .comparison-image {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      height: 100%;
+    }
+
+    .comparison-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .comparison-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+
+      padding: 8px 13px;
+
+      background: rgba(11, 11, 16, 0.82);
+      color: var(--ink);
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+
+      backdrop-filter: blur(12px);
+
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       FULL WIDTH IMAGE
+    ========================================================= */
+
+    .full-media {
+      margin-top: 20px;
+
+      overflow: hidden;
+
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .full-media img {
+      width: 100%;
+      height: auto;
+    }
+.full-media video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+    /* =========================================================
+       FEATURE / KIEHL'S SECTION
+    ========================================================= */
+
+    .feature-block {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 45px;
+      align-items: center;
+
+      padding: 28px;
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 139, 209, 0.07),
+          rgba(165, 139, 255, 0.08)
+        );
+
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .feature-media {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+    }
+
+    .feature-media img {
+      width: 100%;
+      height: auto;
+    }
+
+    .feature-copy {
+      padding: 20px 18px;
+    }
+
+    .small-label {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .feature-copy h3 {
+      font-family: var(--font-display);
+      color: var(--ink);
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      margin: 0 0 22px;
+    }
+
+    .feature-copy p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       SELECTED CONTRIBUTIONS
+    ========================================================= */
+
+    .contributions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .contribution-card {
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          160deg,
+          rgba(255,139,209,.06),
+          rgba(165,139,255,.06)
+        );
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+
+      transition:
+        transform .3s var(--ease-std),
+        border-color .3s ease;
+    }
+
+    .contribution-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(165,139,255,.35);
+    }
+
+    .contribution-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contribution-copy {
+      padding: 22px;
+    }
+
+    .contribution-copy h3 {
+      font-family: var(--font-display);
+      color: var(--ink);
+      font-size: 20px;
+      margin: 0 0 8px;
+    }
+
+    .contribution-copy p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* =========================================================
+       20+ STATEMENT
+    ========================================================= */
+
+    .big-stat {
+      padding: 150px 0 !important;
+      border-top: 1px solid var(--line);
+    }
+
+    .big-stat-number {
+      display: inline-block;
+
+      font-family: var(--font-display);
+      font-size: clamp(110px, 20vw, 230px);
+      font-weight: 800;
+      line-height: 0.8;
+      letter-spacing: -0.07em;
+
+      background: linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent-2),
+        var(--accent-3)
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .big-stat-text {
+      max-width: 720px;
+      margin-top: 38px;
+
+      color: var(--ink);
+
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+
+    /* =========================================================
+       PROJECT END
+    ========================================================= */
+
+    .project-end {
+      padding: 110px 0 !important;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-end-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+    }
+
+    .project-end-eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .project-end h2 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin: 0;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .project-container {
+        width: min(calc(100% - 30px), var(--maxw));
+      }
+
+      .project-hero {
+        padding: 140px 0 80px !important;
+      }
+
+      .project-intro {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .media-grid,
+      .comparison-grid,
+      .contributions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-block {
+        grid-template-columns: 1fr;
+      }
+
+      .project-end-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+    }
+
+
+    @media (max-width: 640px) {
+
+      .project-hero {
+        padding-top: 120px !important;
+      }
+
+      .project-title {
+        font-size: clamp(46px, 15vw, 72px);
+      }
+
+      .project-section {
+        padding: 85px 0 !important;
+      }
+
+      .feature-block {
+        padding: 14px;
+      }
+
+      .feature-copy {
+        padding: 18px 8px 10px;
+      }
+
+      .big-stat {
+        padding: 100px 0 !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       PORTFOLIO BACKGROUND
+  ========================================================== -->
+
+  <div class="bg-orbs" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+
+  <!-- =========================================================
+       NAVIGATION
+  ========================================================== -->
+
+  <header>
+    <nav class="nav">
+
+      <div class="logo">
+        CT · <span>UX</span>
+      </div>
+
+      <div>
+        <a href="../index.html#home">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#works" class="active">Works</a>
+        <a href="../index.html#contact" class="btn-ghost">Contact</a>
+      </div>
+
+    </nav>
+  </header>
+
+
+
+  <main class="project-page">
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="project-hero">
+
+      <div class="project-container">
+
+        <p class="project-eyebrow">
+          Supernova NYC · Internship Work
+        </p>
+
+        <h1 class="project-title">
+          Supernova — Web Design & Development
+        </h1>
+
+
+        <div class="project-intro">
+
+          <p class="project-intro-copy">
+            During my internship at Supernova NYC, I designed, built,
+            and refined 20+ pages across the studio’s Webflow website.
+            Working within an existing visual system, I created new layouts,
+            developed responsive experiences, and adapted project content
+            across desktop, tablet, and mobile.
+          </p>
+
+          <div class="project-meta">
+
+            <div class="meta-item">
+              <span class="meta-label">Role</span>
+              <span class="meta-value">
+                UX & Web Design Intern
+              </span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Tools</span>
+              <span class="meta-value">
+                Webflow · Figma · HTML/CSS
+              </span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Focus</span>
+              <span class="meta-value">
+                UX · UI · Web Design · Responsive Design
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- MAIN HERO SCREENSHOT -->
+
+        <div class="hero-image-wrapper">
+
+          <img
+            src="../media/supernova-room-final.png"
+            alt="Supernova Reading Room website"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         01 — EXISTING SYSTEM
+    ========================================================== -->
+
+    <section class="project-section">
+
+      <div class="project-container">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            01
+          </div>
+
+
+          <div class="section-content">
+
+            <h2>
+              Designing within an established visual system
+            </h2>
+
+            <p>
+              Rather than redesigning Supernova’s existing identity,
+              my role was to extend it. I worked within the studio’s
+              established typography, navigation, spacing, and visual
+              language while creating new page structures and adapting
+              layouts for different types of content.
+            </p>
+
+          </div>
+
+        </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         02 — SUPERNOVA ROOM
+    ========================================================== -->
+
+    <section class="project-section">
+
+      <div class="project-container">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            02
+          </div>
+
+
+          <div class="section-content">
+
+            <h2>
+              Supernova Room — from structure to launch
+            </h2>
+
+            <p>
+              I built the Supernova Room page from the ground up in Webflow,
+              using the studio’s existing design system as a foundation.
+              I developed the page structure, content hierarchy, booking
+              section, imagery, and responsive behavior while maintaining
+              consistency with the rest of the Supernova website.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- EARLY BUILD / FINAL -->
+
+        <div class="comparison-grid">
+
+
+          <div class="comparison-item">
+
+            <div class="comparison-image">
+
+              <img
+                src="../media/supernova-room-process.png"
+                alt="Early Webflow build of the Supernova Room page"
+              >
+
+            </div>
+
+            <div class="comparison-tag">
+              Early Build
+            </div>
+
+          </div>
+
+          <div class="comparison-item">
+
+            <div class="comparison-image">
+
+              <img
+                src="../media/supernova-room-final.png"
+                alt="Final Supernova Room page"
+              >
+
+            </div>
+
+            <div class="comparison-tag">
+              Final Page
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- FINAL PAGE LARGE -->
+
+     <div class="full-media">
+  <video autoplay muted loop playsinline>
+    <source src="../media/finalpage.MOV" type="video/quicktime">
+  </video>
+</div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         03 — RESPONSIVE
+    ========================================================== -->
+
+    <section class="project-section">
+
+      <div class="project-container">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            03
+          </div>
+
+
+          <div class="section-content">
+
+            <h2>
+              Designing across breakpoints
+            </h2>
+
+            <p>
+              Each page was refined across desktop, tablet, and mobile
+              breakpoints to maintain hierarchy, readability, and visual
+              consistency across screen sizes.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="media-grid">
+
+
+          <div class="media-card">
+
+            <div class="media-frame">
+
+              <img
+                src="../media/supernova-desktop-responsive.png"
+                alt="Desktop layout inside Webflow"
+              >
+
+            </div>
+
+            <div class="media-label">
+              Desktop
+            </div>
+
+          </div>
+
+
+
+          <div class="media-card">
+
+            <div class="media-frame contain">
+
+              <img
+                src="../media/supernova-mobile-responsive.jpg"
+                alt="Mobile layout inside Webflow"
+              >
+
+            </div>
+
+            <div class="media-label">
+              Mobile
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         04 — KIEHL'S
+    ========================================================== -->
+
+    <section class="project-section">
+
+      <div class="project-container">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            04
+          </div>
+
+
+          <div class="section-content">
+
+            <h2>
+              Adapting content to the visual system
+            </h2>
+
+            <p>
+              Some project assets required custom visual treatments
+              rather than simply being placed into an existing template.
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="feature-block">
+
+
+          <div class="feature-media">
+
+            <img
+              src="../media/kiehls-supersucker.png"
+              alt="Kiehl's Supersucker project page"
+            >
+
+          </div>
+
+
+
+          <div class="feature-copy">
+
+            <div class="small-label">
+              Custom Media Treatment
+            </div>
+
+            <h3>
+              Kiehl’s Supersucker
+            </h3>
+
+            <p>
+              The original vertical video did not naturally fit the site’s
+              horizontal project format. I created a custom background
+              treatment using the original video imagery, a translucent
+              green overlay, blur, and graphic elements inspired by the
+              project itself.
+              <br><br>
+              This allowed the media to preserve its original proportions
+              while feeling intentional and visually integrated into
+              Supernova’s existing design system.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         06 — SELECTED CONTRIBUTIONS
+    ========================================================== -->
+
+    <section class="project-section">
+
+      <div class="project-container">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            06
+          </div>
+
+
+          <div class="section-content">
+
+            <h2>
+              Selected Webflow contributions
+            </h2>
+
+            <p>
+              Across 20+ pages, my work included page building,
+              responsive adjustments, CMS content integration,
+              visual refinements, media formatting, interactions,
+              and layout troubleshooting.
+            </p>
+
+          </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         20+ PAGES
+    ========================================================== -->
+
+    <section class="big-stat">
+
+      <div class="project-container">
+
+        <div class="big-stat-number">
+          20+
+        </div>
+
+        <div class="big-stat-text">
+          website pages designed, built, refined, or adapted
+          during my internship at Supernova NYC.
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         END / BACK TO WORK
+    ========================================================== -->
+
+    <section class="project-end">
+
+      <div class="project-container">
+
+        <div class="project-end-inner">
+
+
+          <div>
+
+            <div class="project-end-eyebrow">
+              Selected Work
+            </div>
+
+
+          </div>
+
+          <a
+            href="../index.html#works"
+            class="btn"
+          >
+            ← Back to Works
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+  <footer>
+    © <span id="year"></span> Creative Technologist · UX Designer:
+    Built with HTML, CSS and JS.
+  </footer>
+
+
+
+  <!-- SAME PORTFOLIO JS -->
+  <script src="../js/script.js"></script>
+
+
+</body>
+</html>
